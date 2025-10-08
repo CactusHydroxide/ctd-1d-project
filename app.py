@@ -1,19 +1,23 @@
 import streamlit as st
-import mylibrary
 
-st.write("Hello!")
-st.number_input("Enter the quantity of African Oranges $2 each",min_value=0, step=1, key="oranges")
-st.number_input("Enter the quantity of Fuji Apples $3 each", min_value=0, step=1, key="apples")
-st.slider("How many plastic bags do you want", min_value=0, max_value=3, step=1, key="bags")
-bags_cost = mylibrary.plastic_bags_price(st.session_state.bags)
-st.write("Your plastic bags will cost $" + str(bags_cost))
+# Navbar
 
-if st.button('Get Total'):
-    st.write('Calculating Your Total ...')
-    oranges = int(st.session_state.oranges)
-    apples = int(st.session_state.apples)
-    result = mylibrary.calculate_total(oranges, apples)
-    total = bags_cost + result
-    st.write('Please pay {:.2f}'.format(total))
-else:
-    st.write('Please Key In The Quantity')
+pages = {
+    "Home": [
+        st.Page("./pages/store_page.py", title="Store"),
+        st.Page("./pages/checkout_page.py", title="Checkout"),
+    ],
+    "Admin": [
+        st.Page("./pages/sales_page.py", title="Sales Dashboard"),
+    ],
+}
+
+# cart state
+if 'cart_items' not in st.session_state:
+    st.session_state['cart_items'] = {'apple': 0}
+
+
+pg = st.navigation(pages)
+pg.run()
+
+# Website init page. Write your page code in the individual pages.
