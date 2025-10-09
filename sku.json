@@ -1,4 +1,14 @@
 {
-    "apple": 3,
-    "orange": 2
+    "apple": {
+        "price": 3,
+        "category": "fruits"
+    },
+    "orange": {
+        "price": 2,
+        "category": "fruits"
+    },
+    "cabbage": {
+        "price": 1,
+        "category": "vegetable"
+    }
 }
