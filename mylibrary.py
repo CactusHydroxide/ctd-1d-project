@@ -17,19 +17,12 @@ def add_cart_qty(cart_item):
         if cart_item in st.session_state['cart_items']:
             st.session_state['cart_items'][cart_item] += 1 
         else:
-            st.session_state['cart_items'][cart_item] = 0
+            st.session_state['cart_items'][cart_item] = 1
 def subtract_cart_qty(cart_item):
     if 'cart_items' in st.session_state:
-        if cart_item in st.session_state['cart_items']:
+        if cart_item in st.session_state['cart_items'] and st.session_state['cart_items'][cart_item] > 0:
             st.session_state['cart_items'][cart_item] -= 1 
         else:
             st.session_state['cart_items'][cart_item] = 0
-
-
-# Cart Logic
-def calculate_total( oranges, apples):
-    return 2*oranges + 3*apples
-
-def plastic_bags_price(bags):
-    """one bag 0.1, two bags 0.4, three bags 0.9 """
-    return 0.1*bags*bags
+def clear_cart():
+    st.session_state['cart_items'] = {}

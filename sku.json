@@ -1,14 +1,50 @@
 {
-    "apple": {
+    "Apple": {
         "price": 3,
         "category": "fruits"
     },
-    "orange": {
+    "Orange": {
+        "price": 2.2,
+        "category": "fruits"
+    },
+    "Peach": {
+        "price": 5,
+        "category": "fruits"
+    },
+    "Pear": {
         "price": 2,
         "category": "fruits"
     },
-    "cabbage": {
-        "price": 1,
+    "Cabbage": {
+        "price": 2,
         "category": "vegetable"
+    },
+    "Kale": {
+        "price": 4,
+        "category": "vegetable"
+    },
+    "Broccoli": {
+        "price": 3,
+        "category": "vegetable"
+    },
+    "Mushroom": {
+        "price": 2,
+        "category": "vegetable"
+    },
+    "Milk": {
+        "price": 3.5,
+        "category": "drinks"
+    },
+    "Soy Milk": {
+        "price": 2,
+        "category": "drinks"
+    },
+    "Ice Lemon Tea": {
+        "price": 3,
+        "category": "drinks"
+    },
+    "Coke": {
+        "price": 2,
+        "category": "drinks"
     }
 }
