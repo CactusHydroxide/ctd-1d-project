@@ -1,7 +1,6 @@
 import streamlit as st
 
 # Navbar
-
 pages = {
     "Home": [
         st.Page("./pages/store_page.py", title="Store"),
@@ -13,10 +12,14 @@ pages = {
 }
 
 # cart state
+
 if 'cart_items' not in st.session_state:
-    st.session_state['cart_items'] = {'apple': 0}
+    # temporary for testing
+    st.session_state['cart_items'] = {'Apple': 3,'Orange': 2}
+    # st.session_state['cart_items'] = {}
 
 
+# init page
 pg = st.navigation(pages)
 pg.run()
 
