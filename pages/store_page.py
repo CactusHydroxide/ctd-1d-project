@@ -4,27 +4,34 @@ st.title("Store")
 
 
 #example code for item qty
-def add():
-    mylibrary.add_cart_qty('Apple')
-def sub():
-    mylibrary.subtract_cart_qty('Apple')
+def add(product_name):
+    mylibrary.add_cart_qty(product_name)
+def sub(product_name):
+    mylibrary.subtract_cart_qty(product_name)
 st.write('Store Page')
-st.button('Apple +1', on_click=add)
-st.button('Apple -1', on_click=sub)
+
+cart = mylibrary.get_cart()
+sku = mylibrary.get_sku()
+
+categories = ['Fruits','Vegetable','Drinks']
+columns = st.columns(3) # (col1, col2, col3)
 
 
-'''
-What do to:\n
-Make tabs for different sku products. (Fruits, Vegetable, Drinks, Others)\n
-Write a loop that iterates over all items in the sku.\n
-Each item should show the name, price, and quantity in the cart\n
-Use the mylibrary.add_cart_qty and subtract_cart_qty to manage the value'''
+for product_index, product in enumerate(sku.items()): # get product's index in list and product details
+    column_index = product_index % 3 # get column number
+    with columns[column_index]:
+        with st.container():
 
+            # display product details
+            quantity = cart.get(product[0], 0)
+            st.subheader(product[0])
+            st.text(f'${float(product[1]['price']):.2f}')
+            st.text(f'Quantity: {quantity}')
+            plus_minus_column = st.columns(2)
+            # display image
 
-'Example of cart data'
-st.write(mylibrary.get_cart())
-
-'Example of sku data'
-sku_data = mylibrary.get_sku()
-sku_data
-# your code here
+            # display add and subtract buttons
+            with plus_minus_column[0]:
+                st.button('\-', on_click=sub,args= (product[0],), key=f'{product[0]}_subtract' )
+            with plus_minus_column[1]:
+                st.button('\+', on_click=add,args= (product[0],), key=f'{product[0]}_add')

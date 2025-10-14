@@ -13,6 +13,8 @@ header3.subheader("Quantity",divider='grey')
 #cart item
 sku_data = mylibrary.get_sku()
 total_price = 0
+
+# show items and calculate price
 for item_name, qty in cart_items:
     item_price = f'${sku_data[item_name]['price']:.2f}'
     with st.container():
