@@ -1,4 +1,5 @@
 import streamlit as st
+import datetime
 
 # Navbar
 pages = {
@@ -11,12 +12,27 @@ pages = {
     ],
 }
 
-# cart state
-
+# init cart_items state
 if 'cart_items' not in st.session_state:
-    # temporary for testing
     st.session_state['cart_items'] = {'Apple': 3,'Orange': 2}
     # st.session_state['cart_items'] = {}
+
+# init transaction_history state 
+if 'transaction_history' not in st.session_state:
+    st.session_state['transaction_history'] = [
+        {
+            'timestamp': datetime.datetime(2025, 10, 14, 21, 43, 15, 237895),
+            'items':  {
+                'Apple': 4,
+                'Orange': 3,
+                'Milk': 2,
+                'Kale': 2
+            },
+            'price': 33.6
+        }
+    ]
+
+st.session_state['transaction_index'] = 0
 
 
 # init page

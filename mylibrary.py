@@ -1,5 +1,6 @@
 import json
 import streamlit as st
+import datetime
 
 # state and variable management
 def get_sku():
@@ -30,8 +31,22 @@ def clear_cart():
     st.session_state['cart_items'] = {}
 
 # sales data management
+HISTORY = 'transaction_history'
 def get_sales():
-    return 
+    if HISTORY in st.session_state:
+        return(st.session_state[HISTORY])
+    else:
+        st.warning('Sales Data State is not initialized', icon="⚠️")
 
-def new_sale():
-    return
+def new_sale(item_data, price):
+    if HISTORY in st.session_state:
+        items = {}
+        for [product, qty] in item_data:
+            items[product] = qty
+        
+        st.session_state[HISTORY].append({
+                'timestamp': datetime.datetime.now(),
+                'items': items,
+                'price': price
+            }
+        )

@@ -5,6 +5,7 @@ CHECKOUT_LAYOUT = (2,2,1)
 st.title('Checkout')
 cart_items = list(st.session_state['cart_items'].items())
  
+# column layout
 header1, header2, header3 = st.columns(CHECKOUT_LAYOUT, vertical_alignment='center',)
 header1.subheader("Item",divider='grey')
 header2.subheader("Price",divider='grey')
@@ -35,7 +36,7 @@ with st.container(horizontal_alignment='right'):
     st.html('<h1 style="text-align:right; margin-bottom:0;">Total Price</h1>')
     st.html(f'<h1 style="text-align:right; margin-top:0">${total_price:.2f}<h1>')
 
-# submit button container
+# clear cart dialog
 @st.dialog('Clear Cart')
 def clear_cart_button():
     st.write('Are you sure you want to empty your cart?')
@@ -46,7 +47,15 @@ def clear_cart_button():
             mylibrary.clear_cart()
             st.rerun()
 
+# checkout function:
+def checkout():
+    mylibrary.new_sale(cart_items,total_price)
+    # mylibrary.clear_cart()
+
+    return
+
+# submit button container
 with st.container(horizontal_alignment='right',horizontal=True):
     if st.button('Clear cart',type='secondary'):
         clear_cart_button()
-    st.button('Checkout', type='primary')
+    st.button('Checkout', on_click=checkout, type='primary')
