@@ -16,10 +16,10 @@ categories = ['Fruits','Vegetable','Drinks']
 columns = st.columns(3) # (col1, col2, col3)
 
 # show individual products
-for product_index, product in enumerate(sku.items()): # get product's index in list and product details
+for product_index, product in enumerate(sku.items()): # loop thru sku and get product's index in list and product details
     column_index = product_index % 3 # get column number
     with columns[column_index]:
-        with st.container(gap='medium'):
+        with st.container(border=True):
 
             # display product details
             st.subheader(product[0])
@@ -27,16 +27,15 @@ for product_index, product in enumerate(sku.items()): # get product's index in l
             # display price
             st.text(f'${float(product[1]['price']):.2f}')
 
-            # get and display qty
-            quantity = cart.get(product[0], 0)
-            st.text(f'Quantity: {quantity}')
-
             # display image
             # st.image ?
 
             # display add and subtract buttons
-            plus_minus_column = st.columns(2)
+            plus_minus_column = st.columns(3,vertical_alignment='center')
+            quantity = cart.get(product[0], 0)
             with plus_minus_column[0]:
                 st.button('\-', on_click=sub,args= (product[0],), key=f'{product[0]}_subtract',width='stretch' )
             with plus_minus_column[1]:
+                st.html(f'<p style="width: auto; height:auto; margin:auto; text-align: center;">{quantity}</p>')
+            with plus_minus_column[2]:
                 st.button('\+', on_click=add,args= (product[0],), key=f'{product[0]}_add',width='stretch')

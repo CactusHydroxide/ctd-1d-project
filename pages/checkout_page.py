@@ -27,7 +27,7 @@ for item_name, qty in cart_items:
         with item_qty_col:
             col1,col2,col3 = st.columns(3,vertical_alignment ='center',gap='small')
             col1.button('\-', key=f'{item_name}_minus', on_click=mylibrary.subtract_cart_qty, args=(item_name,))
-            col2.write(str(qty))
+            col2.html(f'<p style="width: auto; margin:auto; text-align: center;">{qty}</p>')
             col3.button('\+', key=f'{item_name}_plus', on_click=mylibrary.add_cart_qty, args=(item_name,))    
     total_price += sku_data[item_name]['price'] * qty
 
@@ -50,7 +50,8 @@ def clear_cart_button():
 # checkout function:
 def checkout():
     mylibrary.new_sale(cart_items,total_price)
-    # mylibrary.clear_cart()
+    mylibrary.clear_cart()
+    st.success('You have paid! Happy shopping!')
 
     return
 
