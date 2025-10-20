@@ -28,7 +28,7 @@ for product_index, product in enumerate(sku.items()): # loop thru sku and get pr
             st.text(f'${float(product[1]['price']):.2f}')
 
             # display image
-            # st.image ?
+            st.image(product[1]['image_url'],use_container_width='always')
 
             # display add and subtract buttons
             plus_minus_column = st.columns(3,vertical_alignment='center')

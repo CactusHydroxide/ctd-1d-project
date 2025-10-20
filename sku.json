@@ -1,50 +1,62 @@
 {
     "Apple": {
         "price": 3,
-        "category": "fruits"
+        "category": "fruits",
+        "image_url": "images/Apple.jpg"
     },
     "Orange": {
         "price": 2.2,
-        "category": "fruits"
+        "category": "fruits",
+        "image_url": "images/Orange.jpg"
     },
     "Peach": {
         "price": 5,
-        "category": "fruits"
+        "category": "fruits",
+        "image_url": "images/Peach.jpg"
     },
     "Pear": {
         "price": 2,
-        "category": "fruits"
+        "category": "fruits",
+        "image_url": "images/Pear.jpg"
     },
     "Cabbage": {
         "price": 2,
-        "category": "vegetable"
+        "category": "vegetable",
+        "image_url": "images/Cabbage.jpg"
     },
     "Kale": {
         "price": 4,
-        "category": "vegetable"
+        "category": "vegetable",
+        "image_url": "images/Kale.jpg"
     },
     "Broccoli": {
         "price": 3,
-        "category": "vegetable"
+        "category": "vegetable",
+        "image_url": "images/Broccoli.jpg"
     },
     "Mushroom": {
         "price": 2,
-        "category": "vegetable"
+        "category": "vegetable",
+        "image_url": "images/Mushroom.jpg"
     },
     "Milk": {
         "price": 3.5,
-        "category": "drinks"
+        "category": "drinks",
+        "image_url": "images/Milk.jpg"
     },
     "Soy Milk": {
         "price": 2,
-        "category": "drinks"
+        "category": "drinks",
+        "image_url": "images/Soy_Milk.jpg"
     },
     "Ice Lemon Tea": {
         "price": 3,
-        "category": "drinks"
+        "category": "drinks",
+        "image_url": "images/Ice_Lemon_Tea.jpg"
     },
     "Coke": {
         "price": 2,
-        "category": "drinks"
+        "category": "drinks",
+        "image_url": "images/Coke.jpg"
     }
 }
