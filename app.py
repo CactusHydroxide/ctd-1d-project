@@ -14,7 +14,7 @@ pages = {
 
 # init cart_items state
 if 'cart_items' not in st.session_state:
-    st.session_state['cart_items'] = {'Apple': 3,'Orange': 2}
+    st.session_state['cart_items'] = {}
     # st.session_state['cart_items'] = {}
 
 # init transaction_history state 
